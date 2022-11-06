@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 
-
 export default function Boat(props) {
 
     const [headLights, setLights] = useState('aqua')
@@ -41,7 +40,6 @@ export default function Boat(props) {
 }
 
 const styles = StyleSheet.create({
-
     mainBoat: {
         width: 55,
         height: 75,
