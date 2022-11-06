@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { useCallback } from 'react'
+import { useState } from 'react'
+import { StyleSheet, View } from 'react-native'
+import Environment from './Components/Environment/Environment'
+import Start from './Components/start/Start'
 
 export default function App() {
+
+  const [play, setPlay] = useState(false)
+  const setGamePlay = useCallback((val) => {
+    setPlay(val)
+  })
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <>
+      <View style={styles.ocean}>
+        {play === true ? <Environment setGamePlay={setGamePlay} /> : <Start setGamePlay={setGamePlay} />}
+      </View>
+    </>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  ocean: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: 'dodgerblue',
     justifyContent: 'center',
+    alignContent: 'center',
   },
-});
+})
